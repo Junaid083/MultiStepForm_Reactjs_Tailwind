@@ -5,7 +5,7 @@ export const Input = ({
   name,
   type,
   rules = {},
-  width = "w-full",
+  width = "w-1/2",
   placeholder = "",
   value,
   getValue,
@@ -25,7 +25,7 @@ export const Input = ({
       id={id}
       value={val}
       onChange={onChange}
-      className={`form-input block ${width} border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-700 flex-grow-1 focus:border-blue-500 focus:ring-0 sm:text-sm rounded-md`}
+      className={`form-input block ${width} p-2 border-gray-500 bg-gray-200 flex-grow-1 focus:border-blue-500 focus:ring-0 sm:text-sm rounded-md`}
     />
   );
 };

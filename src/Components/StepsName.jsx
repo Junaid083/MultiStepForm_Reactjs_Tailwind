@@ -105,7 +105,7 @@ const StepsName = () => {
   ];
   return (
     <>
-      <div className="mr-4 ml-6 mt-10 mb-8">
+      <div className="mr-4 ml-6 mt-10 mb-8 bg">
         <div className="flex flex-col w-full  mb-8 lg:flex-wrap lg:flex-row">
           {items.map((item, key) => (
             <div
