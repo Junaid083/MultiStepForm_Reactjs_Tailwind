@@ -1,6 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { FiCheck } from "react-icons/fi";
+import Camera from "./Camera/Camera";
+import LOT from "./LOT/LOT";
+import { CloudConfig } from "./Cloud/Cloud";
+import S3Config from "./Cloud/S3Config";
+import ESConfig from "./Cloud/ESConfig";
+
 import EdgeDevice from "./EdgeDevice/EdgeDevice";
 
 const StepsName = () => {
@@ -76,6 +82,27 @@ const StepsName = () => {
       disabled: false,
     },
   ];
+
+  const tabs = [
+    {
+      index: 0,
+      title: "S3 Configuration",
+      content: (
+        <div className="py-4 w-full lg:w-full">
+          <S3Config />
+        </div>
+      ),
+    },
+    {
+      index: 1,
+      title: "ES Configuration",
+      content: (
+        <div className="w-full py-4 lg:w-full">
+          <ESConfig />
+        </div>
+      ),
+    },
+  ];
   return (
     <>
       <div className="mr-4 ml-6 mt-10 mb-8">
@@ -91,7 +118,6 @@ const StepsName = () => {
                   : "text-white bg-blue-500"
               }`}
               onClick={() => {
-              
                 console.log(item);
               }}
             >
@@ -113,7 +139,6 @@ const StepsName = () => {
 
               <div className="flex flex-col w-full ml-4">
                 <div className="text-sm font-bold">{item.title}</div>
-               
               </div>
             </div>
           ))}
@@ -151,159 +176,175 @@ const StepsName = () => {
           </div>
         )}
 
-      {formNo === 2 && (
-        <div>
-         <EdgeDevice />
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={pre}
-              type="button"
-              className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Previous
-            </button>
-            <button
-              type="submit"
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Save
-            </button>
+        {formNo === 2 && (
+          <div>
+            <Camera />
+            <div className="flex justify-end space-x-2">
+              <button
+                onClick={pre}
+                type="button"
+                className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Previous
+              </button>
+              <button
+                type="submit"
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Save
+              </button>
 
-            <button
-              onClick={next}
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Next
-            </button>
+              <button
+                onClick={next}
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Next
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {formNo === 3 && (
-        <div>
-         <EdgeDevice />
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={pre}
-              type="button"
-              className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Previous
-            </button>
-            <button
-              type="submit"
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Save
-            </button>
+        {formNo === 3 && (
+          <div>
+            <LOT />
+            <div className="flex justify-end space-x-2">
+              <button
+                onClick={pre}
+                type="button"
+                className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Previous
+              </button>
+              <button
+                type="submit"
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Save
+              </button>
 
-            <button
-              onClick={next}
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Next
-            </button>
+              <button
+                onClick={next}
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Next
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {formNo === 4 && (
-        <div>
-          {/* <CloudConfig tabs={tabs} /> */}
-          <EdgeDevice />
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={pre}
-              type="button"
-              className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Previous
-            </button>
-            <button
-              type="submit"
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Save
-            </button>
+        {formNo === 4 && (
+          <div>
+            <CloudConfig tabs={tabs} />
+            <div className="flex justify-end space-x-2">
+              <button
+                onClick={pre}
+                type="button"
+                className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Previous
+              </button>
+              <button
+                type="submit"
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Save
+              </button>
 
-            <button
-              onClick={next}
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Next
-            </button>
+              <button
+                onClick={next}
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Next
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-      {formNo === 5 && (
-        <div>
-          {/* <MLModel tabs={mltabs} /> */}
-          <EdgeDevice />
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={pre}
-              type="button"
-              className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Previous
-            </button>
-            <button
-              type="submit"
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Save
-            </button>
+        )}
+        {formNo === 5 && (
+          <div>
+            {/* <MLModel tabs={mltabs} /> */}
+            <EdgeDevice />
+            <div className="flex justify-end space-x-2">
+              <button
+                onClick={pre}
+                type="button"
+                className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Previous
+              </button>
+              <button
+                type="submit"
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Save
+              </button>
 
-            <button
-              onClick={next}
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Next
-            </button>
+              <button
+                onClick={next}
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Next
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-      {formNo === 6 && (
-        <div>
-          {/* <Validation /> */}
-          <EdgeDevice />
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={pre}
-              type="button"
-              className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Previous
-            </button>
-            <button
-              type="submit"
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Save
-            </button>
+        )}
+        {formNo === 6 && (
+          <div>
+            {/* <Validation /> */}
+            <EdgeDevice />
+            <div className="flex justify-end space-x-2">
+              <button
+                onClick={pre}
+                type="button"
+                className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Previous
+              </button>
+              <button
+                type="submit"
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Save
+              </button>
 
-            <button
-              onClick={next}
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Next
-            </button>
+              <button
+                onClick={next}
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Next
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {formNo === 7 && (
-        <div>
-          {/* <SystemConfig /> */}
-          <EdgeDevice />
+        {formNo === 7 && (
+          <div>
+            {/* <SystemConfig /> */}
+            <EdgeDevice />
 
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={pre}
-              type="button"
-              className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Previous
-            </button>
-            <button
-              type="submit"
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Save
-            </button>
-            <button
-              // onClick={finalSubmit}
-              // onClick={next}
-              className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Submit
-            </button>
+            <div className="flex justify-end space-x-2">
+              <button
+                onClick={pre}
+                type="button"
+                className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Previous
+              </button>
+              <button
+                type="submit"
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Save
+              </button>
+              <button
+                // onClick={finalSubmit}
+                // onClick={next}
+                className="inline-flex justify-center px-3 py-2 ml-3 text-sm font-medium text-white bg-blue-500 border border-transparent shadow-sm rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Submit
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-
+        )}
       </div>
     </>
   );
