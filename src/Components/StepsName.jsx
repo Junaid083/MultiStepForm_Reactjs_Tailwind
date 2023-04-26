@@ -8,7 +8,7 @@ import S3Config from "./Cloud/S3Config";
 import ESConfig from "./Cloud/ESConfig";
 
 import EdgeDevice from "./EdgeDevice/EdgeDevice";
-
+import Widget from "./Widget";
 const StepsName = () => {
   const formArray = [1, 2, 3, 4, 5, 6, 7];
 
@@ -106,6 +106,7 @@ const StepsName = () => {
   return (
     <>
       <div className="mr-4 ml-6 mt-10 mb-8 bg">
+      <Widget title="" description={<span>Step Form</span>}>
         <div className="flex flex-col w-full  mb-8 lg:flex-wrap lg:flex-row">
           {items.map((item, key) => (
             <div
@@ -345,6 +346,7 @@ const StepsName = () => {
             </div>
           </div>
         )}
+      </Widget>
       </div>
     </>
   );
