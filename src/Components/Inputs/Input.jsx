@@ -25,7 +25,7 @@ export const Input = ({
       id={id}
       value={val}
       onChange={onChange}
-      className={`form-input block ${width} p-2  border-gray-100  flex-grow-1 sm:text-sm rounded-md`}
+      className={`form-input block ${width} p-2 border-gray-200 flex-grow-1 sm:text-sm rounded-md`}
     />
   );
 };

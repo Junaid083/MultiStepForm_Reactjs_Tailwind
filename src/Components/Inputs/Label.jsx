@@ -10,7 +10,7 @@
     return (
       <label
         htmlFor={id}
-        className="block text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
+        className="block text-sm font-medium text-black whitespace-nowrap">
         {children}
       </label>
     );
